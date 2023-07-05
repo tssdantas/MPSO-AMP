@@ -1,5 +1,5 @@
 # Object files to either reference or create                          
-OBJ = inputData.cpp Random.cpp main.cpp
+OBJ = inputData.cpp Random.cpp main.cpp MPsoAmp.cpp
 #OBJ = $(wildcard *.cpp)
 
 # The executable file that will be created at the end                 

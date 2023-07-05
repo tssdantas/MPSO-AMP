@@ -6,12 +6,12 @@
 #include <vector>
 #include "Random.h"
 #include "inputData.h"
+#include "MPSOAMP.h"
 
 #define PI 3.14159265
 
-
 // Rastrigin´s objective function
-double objfun_rastrigin(const std::vector<double> &lX, std::vector<double> &grad, void *my_func_data)
+double objfun_rastrigin(std::vector<double> &lX)
 {
     // // This code re-interprets void *my_func_data as pointer of the correct type during runtime:
     // static double wrap(const std::vector<double> &x, std::vector<double> &grad, void *data) {
@@ -30,9 +30,8 @@ double objfun_rastrigin(const std::vector<double> &lX, std::vector<double> &grad
 
 int main ()
 {
-    /// ----------- Initializing Simulated Annealing method -----------  ///
-    InputData inputobj;
-    //SA sim_annealing(&inputobj);
-    //sim_annealing.Optimize(objfun_rastrigin);
-    std::cout << std::endl << "----------------------------------------------------------------------" << std::endl;
+    string outputfilename = "Output.txt";
+    InputData inputObj;
+    MPsoAmp optObj(inputObj);
+    optObj.OptMain(objfun_rastrigin, outputfilename, inputObj);
 }
